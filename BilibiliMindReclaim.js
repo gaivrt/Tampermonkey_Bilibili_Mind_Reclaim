@@ -10,7 +10,7 @@
 // @noframes
 // ==/UserScript==
 
-(function() {
+(function () {
     'use strict';
 
     const CONFIG = {
@@ -44,7 +44,9 @@
         if (url.includes('space.bilibili.com/12853451')) return true;
         if (/^https?:\/\/member\.bilibili\.com\//.test(url)) return true;
         if (/^https?:\/\/message\.bilibili\.com\//.test(url)) return true;
+        if (/^https?:\/\/space\.bilibili\.com\//.test(url)) return true;
         if (/^https?:\/\/www\.bilibili\.com\/read\//.test(url)) return true;
+        if (/^https?:\/\/www\.bilibili\.com\/opus\//.test(url)) return true;
         if (/^https?:\/\/www\.bilibili\.com\/video\//.test(url)) return true;
 
         if (/^https?:\/\/live\.bilibili\.com\//.test(url)) {
@@ -57,7 +59,7 @@
     // --- 暴力 CSS ---
     const NUCLEAR_CSS = `
         /* 0. 根元素底色：防止 Body 未加载时的白屏，直接变黑 */
-        html { background-color: #0f172a !important; }
+        html { background-color: #224466 !important; }
 
         /* 1. 默认拒绝策略：隐藏所有非安全内容 */
         html:not([data-safe="true"]) body > *:not(#memento-overlay) {
@@ -217,12 +219,12 @@
     checkStatus();
     setInterval(checkStatus, 50);
 
-    window.addEventListener('click', function(e) {
+    window.addEventListener('click', function (e) {
         const link = e.target.closest('a');
         if (link) {
             const href = link.href;
             if (href && !isSafeUrl(href)) {
-                if(href.startsWith('javascript') || href.includes('#')) return;
+                if (href.startsWith('javascript') || href.includes('#')) return;
                 e.preventDefault();
                 e.stopPropagation();
                 history.pushState(null, '', href);
