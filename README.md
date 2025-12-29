@@ -28,9 +28,32 @@ BMR 是一个激进的 Tampermonkey 用户脚本，旨在帮助用户从 Bilibil
 
 ## 安装说明
 
+### 前置步骤：启用浏览器开发者模式
+
+> [!IMPORTANT]
+> 如果直接安装脚本无法运行，通常是因为浏览器默认阻止了用户脚本。请按以下步骤开启权限。
+
+**Chrome / Edge:**
+1.  打开 `chrome://extensions` 或 `edge://extensions`。
+2.  开启右上角的 **开发者模式（Developer Mode）** 开关。
+
+**Firefox:**
+Firefox 通常不需要额外设置，但需确保 Tampermonkey 拥有足够权限。
+
+### Tampermonkey 设置
+
+1.  点击浏览器右上角的 Tampermonkey 图标 → **管理面板**。
+2.  进入 **设置** → **通用** 选项卡。
+3.  找到 **配置模式**，选择 **高级** 或 **初学者**。
+4.  在 **安全** 部分，确保 **允许运行用户脚本** 已启用。
+
+### 安装脚本
+
 1.  安装浏览器扩展 [Tampermonkey](https://www.tampermonkey.net/) (Chrome/Edge/Firefox)。
-2.  创建一个新脚本，将 `BilibiliMindReclaim.js` 的内容完全复制进去。
-3.  保存并启用。
+2.  点击 Tampermonkey 图标 → **添加新脚本**。
+3.  将 `BilibiliMindReclaim.js` 的内容完整复制粘贴到编辑器中。
+4.  按 `Ctrl+S` 保存。
+5.  刷新 Bilibili 页面，脚本即刻生效。
 
 ---
 
